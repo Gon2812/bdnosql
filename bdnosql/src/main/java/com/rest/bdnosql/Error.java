@@ -1,19 +1,16 @@
 package com.rest.bdnosql;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import redis.clients.jedis.Jedis;
 
 @RestController
 public class Error {
-    /*@RequestMapping("/")
-    public String error(){
-        String errores = new String("Error 101 - El Ususario ya existe. \nError 102 - El Usuario no existe. \nError 103 - El Rol no existe.\nError 104 - Contraseña incorrecta.");
-        System.out.println("Error 101 - El Ususario ya existe. \nError 102 - El Usuario no existe. \nError 103 - El Rol no existe.\nError 104 - Contraseña incorrecta.");
-        return errores;
-    }*/
     @RequestMapping("/")
+    @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.PUT,RequestMethod.POST})
     public String error(){
         System.out.println("Error 101 - El Ususario ya existe. \nError 102 - El Usuario no existe. \nError 103 - El Rol no existe.\nError 104 - Contraseña incorrecta.");
         try (Jedis jedis = Pool.getResource()) {

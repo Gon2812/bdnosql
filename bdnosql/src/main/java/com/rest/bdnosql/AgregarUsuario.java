@@ -24,16 +24,16 @@ public class AgregarUsuario {
                 String usu = jedis.hgetAll(usuario.getCorreo()).toString();
                 System.out.println("Agregado con éxito!");
                 System.out.println(usu);
-                return usu;
+                return "Usuario agregado con éxito!";
             }
             else{
                 System.out.println(jedis.get("Error 101"));
-                return jedis.get("Error 101");
+                return "Error 101 - " + jedis.get("Error 101");
             }
  
          } catch (Exception e){
              e.printStackTrace();
          }
-         return "Error raro";
+         return "Faltan datos.";
     }
 }

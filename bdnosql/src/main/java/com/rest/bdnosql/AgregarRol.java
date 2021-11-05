@@ -23,7 +23,7 @@ public class AgregarRol {
                }
                else{
                 System.out.println(jedis.get("Error 104"));
-                return jedis.get("Error 104");
+                return "Error 104 - " + jedis.get("Error 104");
                }
                 String usu = jedis.hgetAll(usuario.getCorreo()).toString();
                 System.out.println("Agregado con éxito!");
@@ -33,12 +33,12 @@ public class AgregarRol {
             }
             else{
                 System.out.println(jedis.get("Error 102"));
-                return jedis.get("Error 102");
+                return "Error 102 - " + jedis.get("Error 102");
             }
  
          } catch (Exception e){
              e.printStackTrace();
          }
-         return "Error raro";
+         return "Faltan datos.";
     }
 }
